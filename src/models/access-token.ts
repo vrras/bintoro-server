@@ -1,19 +1,25 @@
 import { BaseEntity, Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('AccessToken', { synchronize: false })
+@Entity('accesstoken', { synchronize: false })
 export class AccessToken extends BaseEntity {
   @PrimaryColumn({ name: 'id' })
-  ID: string;
+  id: number;
 
-  @Column({ name: 'ttl' })
-  ttl: number;
-
-  @Column({ name: 'scopes' })
-  scopes: string;
-
-  @Column({ name: 'created' })
-  created: Date;
-
-  @Column({ name: 'userId' })
+  @Column({ name: 'user_id' })
   userId: number;
+
+  @Column({ name: 'token' })
+  token: string;
+
+  @Column({ name: 'type' })
+  type: string;
+
+  @Column({ name: 'is_revoked' })
+  isRevoked: number;
+  
+  @Column({ name: 'created_at' })
+  createdAt: Date;
+
+  @Column({ name: 'updated_at' })
+  updatedAt: Date;
 }
